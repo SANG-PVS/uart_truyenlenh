@@ -15,7 +15,7 @@ void uart_receive(uint8_t data_rx)
 	 buff[uart_len++]=data_rx;
  }
 }
-void uart_handle (gpio_led*led)
+void uart_handle (DHT11*ht)
 { 
 	if(uart_flag==1)
 	{
@@ -27,13 +27,9 @@ void uart_handle (gpio_led*led)
 		 argv[argv_num++]=token;
 		 token=strtok(NULL," ");
 	 }
-	 if(strcmp(argv[0],"gettemp")==0)
+	 if(strcmp(argv[0],"get")==0)
 	 {
-		 gettemp(argv,argv_num);
-	 }
-	 else if(strcmp(argv[0],"nhapnhay")==0)
-	 {
-		 nhap_nhay(argv,argv_num,led);
+		 get(argv,argv_num,ht);
 	 }
 	 uart_len =0 ;
    uart_flag = 0;	

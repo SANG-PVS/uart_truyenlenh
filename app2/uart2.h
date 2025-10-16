@@ -6,5 +6,5 @@
 #include "gettemp2.h"
 #include "nhap_nhay2.h"
 void uart_receive(uint8_t data_rx);
-void uart_handle (gpio_led*led);
+void uart_handle (DHT11*ht);
 #endif
